@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: 247 247 245;
+  --fg: 10 10 10;
+}
+
+.dark {
+  --bg: 10 10 10;
+  --fg: 245 245 245;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-paper text-ink antialiased;
+}
+
+.dark body {
+  @apply bg-ink text-paper;
+}
+
+::selection {
+  @apply bg-accent text-white;
+}
+
+/* Big outlined display name */
+.text-outline {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgb(10 10 10 / 0.85);
+}
+
+.dark .text-outline {
+  -webkit-text-stroke: 1.5px rgb(245 245 245 / 0.9);
+}
+
+@media (min-width: 1024px) {
+  .text-outline {
+    -webkit-text-stroke-width: 2px;
+  }
+}
+
+/* Outlined text on always-dark surfaces (e.g. project card bands) */
+.text-outline-light {
+  color: transparent;
+  -webkit-text-stroke: 1.5px rgb(245 245 245 / 0.85);
+}
+
+@media (min-width: 1024px) {
+  .text-outline-light {
+    -webkit-text-stroke-width: 2px;
+  }
+}
+
+/* thin elegant scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply rounded-full bg-zinc-400/50;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  @apply bg-zinc-600/60;
+}
